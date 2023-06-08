@@ -41,10 +41,6 @@ button:hover {
     background-color: #ffca28;
 }
 
-#caesar-options, #rsa-key-input, #caesar-shift-input {
-    display: none;
-}
-
 #result {
     resize: none;
 }
