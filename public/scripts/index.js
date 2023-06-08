@@ -1,4 +1,4 @@
-import {encrypt, decrypt, privateKey, publicKey} from './rsa';
+import {encrypt, decrypt, privateKey, publicKey} from '../../src/rsa';
 
 const encrBtn = document.getElementById('encryptBtn');
 const decrBtn = document.getElementById('decryptBtn');
