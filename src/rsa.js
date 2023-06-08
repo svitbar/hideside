@@ -26,5 +26,9 @@ const getPrimeNumber = () => {
   return {p, q};
 };
 
-const num = getPrimeNumber();
-console.log(num);
+
+const primes = getPrimeNumber();
+console.log(primes);
+
+const n = primes.p * primes.q;
+console.log(n);
