@@ -63,20 +63,10 @@ const checkExp = (z) => {
 };
 
 const primes = getPrimeNumber();
-console.log(primes);
-
 const n = primes.p * primes.q;
-console.log(`n: ${n}`);
-
 const z = (primes.p - 1) * (primes.q - 1);
-console.log(`z: ${z}`);
-
 const e = checkExp(z);
-console.log(`e: ${e}`);
-
 const d = modInverse(e, z);
-
-console.log(`d: ${d}`);
 
 const privateKey = {n, d};
 const publicKey = {n, e};
@@ -103,8 +93,4 @@ const decrypt = (ciphertext, privateKey) => {
   return message;
 };
 
-const message = 'hello';
-const encrypted = encrypt(message, publicKey);
-console.log(encrypted);
-const decrypted = decrypt(encrypted, privateKey);
-console.log(decrypted);
+module.exports = {encrypt, decrypt, publicKey, privateKey};
