@@ -78,7 +78,7 @@ const d = modInverse(e, z);
 
 console.log(`d: ${d}`);
 
-// const privateKey = {n, d};
+const privateKey = {n, d};
 const publicKey = {n, e};
 
 const encrypt = (message, publicKey) => {
@@ -92,6 +92,19 @@ const encrypt = (message, publicKey) => {
   return ciphertext;
 };
 
+const decrypt = (ciphertext, privateKey) => {
+  const {d, n} = privateKey;
+  let message = '';
+  for (let i = 0; i < ciphertext.length; i++) {
+    const charCode = ciphertext.charCodeAt(i);
+    const decryptedCharCode = BigInt(charCode) ** BigInt(d) % BigInt(n);
+    message += String.fromCharCode(Number(decryptedCharCode));
+  }
+  return message;
+};
+
 const message = 'hello';
 const encrypted = encrypt(message, publicKey);
 console.log(encrypted);
+const decrypted = decrypt(message, privateKey);
+console.log(decrypted);
