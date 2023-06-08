@@ -26,16 +26,6 @@ const getPrimeNumber = () => {
   return {p, q};
 };
 
-
-const primes = getPrimeNumber();
-console.log(primes);
-
-const n = primes.p * primes.q;
-console.log(`n: ${n}`);
-
-const z = (primes.p - 1) * (primes.q - 1);
-console.log(`z: ${z}`);
-
 const gcd = (e, z) => {
   if (z === 0) {
     return e;
@@ -72,9 +62,36 @@ const checkExp = (z) => {
   return e;
 };
 
+const primes = getPrimeNumber();
+console.log(primes);
+
+const n = primes.p * primes.q;
+console.log(`n: ${n}`);
+
+const z = (primes.p - 1) * (primes.q - 1);
+console.log(`z: ${z}`);
+
 const e = checkExp(z);
 console.log(`e: ${e}`);
 
 const d = modInverse(e, z);
 
 console.log(`d: ${d}`);
+
+// const privateKey = {n, d};
+const publicKey = {n, e};
+
+const encrypt = (message, publicKey) => {
+  const {e, n} = publicKey;
+  let ciphertext = '';
+  for (let i = 0; i < message.length; i++) {
+    const charCode = message.charCodeAt(i);
+    const encryptedCharCode = BigInt(charCode) ** BigInt(e) % BigInt(n);
+    ciphertext += String.fromCharCode(Number(encryptedCharCode));
+  }
+  return ciphertext;
+};
+
+const message = 'hello';
+const encrypted = encrypt(message, publicKey);
+console.log(encrypted);
