@@ -35,3 +35,15 @@ console.log(`n: ${n}`);
 
 const z = (primes.p - 1) * (primes.q - 1);
 console.log(`z: ${z}`);
+
+const e = 65537;
+
+const gcd = (e, z) => {
+  if (z === 0) {
+    return e;
+  }
+
+  return gcd(z, e % z);
+};
+
+console.log(gcd(e, z));
