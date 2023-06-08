@@ -16,7 +16,7 @@ const getPrimeNumber = () => {
   let p;
   let q;
   do {
-    p = genRandomInt(10, 1000);
+    p = genRandomInt(10, 100);
   } while (!isPrime(p));
 
   do {
@@ -42,7 +42,7 @@ const modInverse = (a, m) => {
   while (a > 1) {
     const q = Math.floor(a / m);
     [a, m] = [m, a % m];
-    [x, y] = [y - q * x, x];
+    [x, y] = [y, x - q * y];
   }
   if (x < 0) {
     x += m0;
@@ -106,5 +106,5 @@ const decrypt = (ciphertext, privateKey) => {
 const message = 'hello';
 const encrypted = encrypt(message, publicKey);
 console.log(encrypted);
-const decrypted = decrypt(message, privateKey);
+const decrypted = decrypt(encrypted, privateKey);
 console.log(decrypted);
