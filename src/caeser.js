@@ -1,7 +1,14 @@
 const caesarShift = (text, shift) => {
+  if (shift < -25 || shift > 25) {
+    throw new Error('Shift value should be between -25 and 25.');
+  }
+
   const chars = text.split('');
 
   const shiftedCh = chars.map((char) => {
+    if (!char.match(/[a-zA-Z]/)) {
+      throw new Error('It should be a string using Latin alphabet');
+    }
     const charCode = char.charCodeAt() - 97;
 
     const shiftedCharCode = (charCode + shift) % 26;
