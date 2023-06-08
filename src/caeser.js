@@ -26,6 +26,4 @@ const caesarShift = (text, shift) => {
   return shiftedText;
 };
 
-console.log(caesarShift('hello', -13));
-
 module.exports = caesarShift;
