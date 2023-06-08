@@ -47,3 +47,23 @@ const gcd = (e, z) => {
 };
 
 console.log(gcd(e, z));
+
+const modInverse = (a, m) => {
+  let [m0, x, y] = [m, 1, 0];
+  if (m === 1) {
+    return 0;
+  }
+  while (a > 1) {
+    const q = Math.floor(a / m);
+    [a, m] = [m, a % m];
+    [x, y] = [y - q * x, x];
+  }
+  if (x < 0) {
+    x += m0;
+  }
+  return x;
+};
+
+const d = modInverse(e, z);
+
+console.log(`d: ${d}`);
