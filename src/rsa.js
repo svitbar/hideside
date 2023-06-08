@@ -12,6 +12,19 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-const num = genRandomInt(10, 1000);
+const getPrimeNumber = () => {
+  let p;
+  let q;
+  do {
+    p = genRandomInt(10, 1000);
+  } while (!isPrime(p));
+
+  do {
+    q = genRandomInt(10, 1000);
+  } while (!isPrime(q) || p === q);
+
+  return {p, q};
+};
+
+const num = getPrimeNumber();
 console.log(num);
-console.log(isPrime(num));
