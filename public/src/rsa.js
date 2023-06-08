@@ -68,10 +68,10 @@ const z = (primes.p - 1) * (primes.q - 1);
 const e = checkExp(z);
 const d = modInverse(e, z);
 
-const privateKey = {n, d};
-const publicKey = {n, e};
+export const privateKey = {n, d};
+export const publicKey = {n, e};
 
-const encrypt = (message, publicKey) => {
+export const encrypt = (message, publicKey) => {
   const {e, n} = publicKey;
   let ciphertext = '';
   for (let i = 0; i < message.length; i++) {
@@ -82,7 +82,7 @@ const encrypt = (message, publicKey) => {
   return ciphertext;
 };
 
-const decrypt = (ciphertext, privateKey) => {
+export const decrypt = (ciphertext, privateKey) => {
   const {d, n} = privateKey;
   let message = '';
   for (let i = 0; i < ciphertext.length; i++) {
@@ -93,4 +93,4 @@ const decrypt = (ciphertext, privateKey) => {
   return message;
 };
 
-module.exports = {encrypt, decrypt, publicKey, privateKey};
+// module.exports = {encrypt, decrypt, publicKey, privateKey};

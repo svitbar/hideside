@@ -4,7 +4,7 @@
   "description": "Encryption data website.",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node public/server.js",
     "test": "jest",
     "lint": "eslint src/*.js test/*.js",
     "lint-fix": "eslint src/*.js test/*.js --fix"
