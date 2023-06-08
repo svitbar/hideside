@@ -1,4 +1,7 @@
 const caesarShift = (text, shift) => {
+  if (typeof(shift) !== 'number') {
+    throw new Error('Shift value should be a number.');
+  }
   if (shift < -25 || shift > 25) {
     throw new Error('Shift value should be between -25 and 25.');
   }
@@ -22,5 +25,7 @@ const caesarShift = (text, shift) => {
 
   return shiftedText;
 };
+
+console.log(caesarShift('hello', -13));
 
 module.exports = caesarShift;
