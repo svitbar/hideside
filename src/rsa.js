@@ -36,8 +36,6 @@ console.log(`n: ${n}`);
 const z = (primes.p - 1) * (primes.q - 1);
 console.log(`z: ${z}`);
 
-const e = 65537;
-
 const gcd = (e, z) => {
   if (z === 0) {
     return e;
@@ -45,8 +43,6 @@ const gcd = (e, z) => {
 
   return gcd(z, e % z);
 };
-
-console.log(gcd(e, z));
 
 const modInverse = (a, m) => {
   let [m0, x, y] = [m, 1, 0];
@@ -63,6 +59,21 @@ const modInverse = (a, m) => {
   }
   return x;
 };
+
+const checkExp = (z) => {
+  let e = 2;
+  while (e < z) {
+    if (gcd(e, z) === 1) {
+      break;
+    }
+    e++;
+  }
+
+  return e;
+};
+
+const e = checkExp(z);
+console.log(`e: ${e}`);
 
 const d = modInverse(e, z);
 
