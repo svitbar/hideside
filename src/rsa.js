@@ -31,4 +31,7 @@ const primes = getPrimeNumber();
 console.log(primes);
 
 const n = primes.p * primes.q;
-console.log(n);
+console.log(`n: ${n}`);
+
+const z = (primes.p - 1) * (primes.q - 1);
+console.log(`z: ${z}`);
