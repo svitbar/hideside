@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HideSide</title>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>HideSide</h1>
+
+    <label for="plaintext">Введіть текст:</label>
+    <textarea id="plaintext" rows="4" cols="50"></textarea>
+
+    <label for="algorithm">Оберіть алгоритм:</label>
+    <select id="algorithm">
+        <option value="rsa">RSA</option>
+        <option value="caesar">Шифр Цезаря</option>
+    </select>
+
+    <div id="caesar-options">
+        <label for="shift">Зміщення (цифра):</label>
+        <input type="number" id="shift" min="1" max="25">
+    </div>
+
+    <button>Зашифрувати</button>
+    <button>Розшифрувати</button>
+
+    <label for="result">Результат:</label>
+    <textarea id="result" rows="4" cols="50" readonly></textarea>
+
+    <button>Копіювати</button>
+</body>
+</html>
