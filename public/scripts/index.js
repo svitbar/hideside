@@ -1,4 +1,4 @@
-import {encrypt, decrypt, privateKey, publicKey} from '../../src/rsa';
+import {encrypt, decrypt, privateKey, publicKey} from '/src/rsa.js';
 
 const encrBtn = document.getElementById('encryptBtn');
 const decrBtn = document.getElementById('decryptBtn');
@@ -39,7 +39,7 @@ encrBtn.addEventListener('click', () => {
   let result = '';
 
   if (algorithm === 'rsa') {
-    result = encrypt(plaintext, publicKey);
+    result = encrypt(plaintext, privateKey);
   } else if (algorithm === 'caesar') {
     const shift = parseInt(shiftInput.value);
 
@@ -60,7 +60,7 @@ decrBtn.addEventListener('click', () => {
   let result = '';
 
   if (algorithm === 'rsa') {
-    result = plaintext + ' RSA decryption!';
+    result = decrypt(plaintext, publicKey);
   } else if (algorithm === 'caesar') {
     const shift = parseInt(shiftInput.value);
 
