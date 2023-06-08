@@ -1,27 +1,19 @@
-const caesarShift = function(str, amount) {
-  if (amount < 0) {
-    return caesarShift(str, amount + 26);
-  }
+const caesarShift = (text, shift) => {
+  const chars = text.split('');
 
-  let output = '';
+  const shiftedCh = chars.map((char) => {
+    const charCode = char.charCodeAt() - 97;
 
-  for (let i = 0; i < str.length; i++) {
-    let c = str[i];
+    const shiftedCharCode = (charCode + shift) % 26;
 
-    if (c.match(/[a-z]/i)) {
-      const code = str.charCodeAt(i);
+    const shiftedChar = String.fromCharCode(shiftedCharCode + 97);
 
-      if (code >= 65 && code <= 90) {
-        c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
-      } else if (code >= 97 && code <= 122) {
-        c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
-      }
-    }
+    return shiftedChar;
+  });
 
-    output += c;
-  }
+  const shiftedText = shiftedCh.join('');
 
-  return output;
+  return shiftedText;
 };
 
 module.exports = caesarShift;
